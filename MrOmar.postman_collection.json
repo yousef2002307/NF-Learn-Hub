@@ -1,0 +1,3051 @@
+{
+	"info": {
+		"_postman_id": "52b31b55-6fdd-4f44-bf62-3c50acb6266b",
+		"name": "MrOmar",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27000863"
+	},
+	"item": [
+		{
+			"name": "1 registeration and forget password",
+			"item": [
+				{
+					"name": "1 Register",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"yousef\", \r\n   \r\n   \r\n    \"studyyear\" : 1,\r\n    \"email\" : \"youseeeef@yousef.com\",\r\n    \"password\" : \"yousefyousef\",\r\n    \"password_confirmation\" : \"yousefyousef\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host2}}/api/v1/register",
+							"host": [
+								"{{host2}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "forgetpassword",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"test@test.com\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/forgot-password",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"forgot-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update user email and name",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/user/profile-information",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user",
+								"profile-information"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update password",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"current_password\": \"test12345\",\r\n    \"password\" : \"test123456\",\r\n    \"password_confirmation\" : \"test123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/user/password",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user",
+								"password"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "generate parent code",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "10|qB6ul6i6jhiKJTe814viI6HgBPjb5bmZRWvBFdMW5c07cad2",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/v1/generateparentcode",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"generateparentcode"
+							]
+						},
+						"description": "after login , we call this endpoint to generate parent code so they can see child progress, and if parent code excist nothing changes"
+					},
+					"response": []
+				},
+				{
+					"name": "re-generate parent code",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "10|qB6ul6i6jhiKJTe814viI6HgBPjb5bmZRWvBFdMW5c07cad2",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/v1/regenerateparentcode",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"regenerateparentcode"
+							]
+						},
+						"description": "here student can re-generate parent code in case it was stolen"
+					},
+					"response": []
+				},
+				{
+					"name": "get parent code",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "10|qB6ul6i6jhiKJTe814viI6HgBPjb5bmZRWvBFdMW5c07cad2",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/v1/parentcode",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"parentcode"
+							]
+						},
+						"description": "here you can get the parent code so you can show it to student"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "2 login and generate token",
+			"item": [
+				{
+					"name": "1 Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"mmnwat6@gmail.com\",\r\n    \"password\" :\"2002307yY\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "3 delete tokens and logout",
+			"item": [
+				{
+					"name": "2 Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "167|2ZiPk5W87xw1MFd7hV5jmJYMwARl3wH2f7Da8k7la10b2eb7",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/v1/logout",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "4 edit profile",
+			"item": [
+				{
+					"name": "update user email and name Copy",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/user/profile-information",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user",
+								"profile-information"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update password Copy",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"current_password\": \"test12345\",\r\n    \"password\" : \"test123456\",\r\n    \"password_confirmation\" : \"test123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/user/password",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user",
+								"password"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "students endpoints",
+			"item": [
+				{
+					"name": "payments",
+					"item": [
+						{
+							"name": "success",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"description": "this endpoint means that the payment process has been okey without error , and update teh database for it"
+							},
+							"response": []
+						},
+						{
+							"name": "cancel",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"description": "cancel student subscription"
+							},
+							"response": []
+						},
+						{
+							"name": "is_Subscribe",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"description": "see whether the student is subscribed or not"
+							},
+							"response": []
+						}
+					],
+					"description": "here the endpoints related to payment(student payment for the teacher)"
+				},
+				{
+					"name": "user profile",
+					"item": [
+						{
+							"name": "user profile data",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					],
+					"description": "here get access of all authenticated user data"
+				},
+				{
+					"name": "user get his own rating",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "163|jbyHLSYcfMdcDSNR73Tq4hJA8iOPr9Dm772kbbrga185def4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/v1/hisrate",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"hisrate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "student get his own attendences",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "163|jbyHLSYcfMdcDSNR73Tq4hJA8iOPr9Dm772kbbrga185def4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/v1/hisattend",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"hisattend"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "student get his own lessons",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "163|jbyHLSYcfMdcDSNR73Tq4hJA8iOPr9Dm772kbbrga185def4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/v1/hislesson",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"hislesson"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "this has all student api endpoints"
+		},
+		{
+			"name": "Admin crud operations onstudents",
+			"item": [
+				{
+					"name": "view all students",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "127|fVGByEpCDCpSYYzEJo8WUzDhMNsayrXO1VlxeyYr1a4cbbcc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/v1/students",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show specific student",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "122|MKjvwqKCHhNa3MDu2EvBNVqPpm20cc4rOIOxV8B9f4e7e7e0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/v1/rate",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"rate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update student",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "127|fVGByEpCDCpSYYzEJo8WUzDhMNsayrXO1VlxeyYr1a4cbbcc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"yousef\",\r\n    \"studyyear\" : 1,\r\n    \"email\" : \"stuent2@test.com\",\r\n    \"password\" : \"20022008\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/students/20",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"students",
+								"20"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete student",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "127|fVGByEpCDCpSYYzEJo8WUzDhMNsayrXO1VlxeyYr1a4cbbcc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/v1/students/10",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"students",
+								"10"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "here all crud(create edit delete ) students"
+		},
+		{
+			"name": "parents endpoints",
+			"item": [
+				{
+					"name": "parent login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"code\" : \"NlshOWNoqjr\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/parentlogin",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"parentlogin"
+							]
+						},
+						"description": "here you pass code in request if it correct you save it for later reqyest as all request in parent endpoints depend on it"
+					},
+					"response": []
+				},
+				{
+					"name": "getlast5rating",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"code\" : \"NlshOWNoqjr\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/parentlogin",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"parentlogin"
+							]
+						},
+						"description": "you pass the code you saveed in request to this endpoint so it reurn results"
+					},
+					"response": []
+				},
+				{
+					"name": "getlast5attendence",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"code\" : \"KvgEODVVYe9d\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/getlast5attendence",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"getlast5attendence"
+							]
+						},
+						"description": "you pass the code you saveed in request to this endpoint so it reurn results"
+					},
+					"response": []
+				},
+				{
+					"name": "getlast5results of quizzes",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"code\" : \"NlshOWNo8qjr\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/getlast5result",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"getlast5result"
+							]
+						},
+						"description": "you pass the code you saveed in request to this endpoint so it reurn results"
+					},
+					"response": []
+				},
+				{
+					"name": "get child payment status",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"code\" : \"NlshOWNo8qjr\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/getlast5result",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"getlast5result"
+							]
+						},
+						"description": "this endpoint give the parent whether his child is subscribed or not"
+					},
+					"response": []
+				}
+			],
+			"description": "_**here all parent endpoint**_"
+		},
+		{
+			"name": "super admin endpoints",
+			"item": [
+				{
+					"name": "get all payment records",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "159|xIQ2lTgSwyymXbF0lkEFXqzEa8FZBdWpVN1qmVdf0a9b4c4a",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/v1/getpaymentsrecored",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"getpaymentsrecored"
+							]
+						},
+						"description": "get all payments records\n\nNote for front end:\n\nshould get for all these records : money made last month, money made last 3 months , money made last year , money made form the beginneing(all records)"
+					},
+					"response": []
+				}
+			],
+			"description": "_**here are all execlusive superadmin Api Endpoints**_\n\n#### **note : he shares all admin api endpoints as well**"
+		},
+		{
+			"name": "another admin endpoints",
+			"item": [
+				{
+					"name": "Admin Access parent tokend end points",
+					"item": [
+						{
+							"name": "view all parents access code",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "127|fVGByEpCDCpSYYzEJo8WUzDhMNsayrXO1VlxeyYr1a4cbbcc",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/api/v1/parent",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"parent"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show specific parent access code for specific student",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "127|fVGByEpCDCpSYYzEJo8WUzDhMNsayrXO1VlxeyYr1a4cbbcc",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/api/v1/rate",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"rate"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "here admin can access all parents access tokens"
+				},
+				{
+					"name": "activate and disable student",
+					"item": [
+						{
+							"name": "activate or disabled",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					],
+					"description": "if student active it will disable it and if student is disabled it will be active"
+				},
+				{
+					"name": "get  student status",
+					"item": [
+						{
+							"name": "get status of student whether active or disabled account",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					],
+					"description": "to see as admin whether student his account is disabled or active\n\n_**if return 1 means active**_\n\n_**if return 0 means disabled**_"
+				},
+				{
+					"name": "get  student payment status",
+					"item": [
+						{
+							"name": "get status of student whether active or disabled account",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "157|Sa1f43mBx0ae0D7unzSiiPCNF8qXt9hfy7Ng6Wjlc9c1ee5a",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/api/v1/paymentstatus/28",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"paymentstatus",
+										"28"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "_**see whether student has paid or not**_"
+				},
+				{
+					"name": "lessons",
+					"item": [
+						{
+							"name": "get all lessons",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "159|xIQ2lTgSwyymXbF0lkEFXqzEa8FZBdWpVN1qmVdf0a9b4c4a",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/api/v1/admlessons",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"admlessons"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all lessons for specific study year",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "159|xIQ2lTgSwyymXbF0lkEFXqzEa8FZBdWpVN1qmVdf0a9b4c4a",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/api/v1/admlessonsy/1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"admlessonsy",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get a specific lesson by its id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "159|xIQ2lTgSwyymXbF0lkEFXqzEa8FZBdWpVN1qmVdf0a9b4c4a",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/api/v1/admlessonsid/2",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"admlessonsid",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "here get all lessons or specific lesson for specic year"
+				},
+				{
+					"name": "rating",
+					"item": [
+						{
+							"name": "view all rating to all student",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "122|MKjvwqKCHhNa3MDu2EvBNVqPpm20cc4rOIOxV8B9f4e7e7e0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/api/v1/rate",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"rate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create rating",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "122|MKjvwqKCHhNa3MDu2EvBNVqPpm20cc4rOIOxV8B9f4e7e7e0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"rate\" :43,\r\n    \"user_id\" :21\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/rate",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"rate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update rating",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "122|MKjvwqKCHhNa3MDu2EvBNVqPpm20cc4rOIOxV8B9f4e7e7e0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/api/v1/rate",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"rate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete rating",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "122|MKjvwqKCHhNa3MDu2EvBNVqPpm20cc4rOIOxV8B9f4e7e7e0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/api/v1/rate/1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"rate",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "view rating for specific student",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					],
+					"description": "here endpoints to create and edit and delete and view ration for student"
+				},
+				{
+					"name": "attendence",
+					"item": [
+						{
+							"name": "view all attendence records",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "122|MKjvwqKCHhNa3MDu2EvBNVqPpm20cc4rOIOxV8B9f4e7e7e0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/api/v1/rate",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"rate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create attendence record",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "122|MKjvwqKCHhNa3MDu2EvBNVqPpm20cc4rOIOxV8B9f4e7e7e0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"attendance_date\" : \"2024-10-10\",\r\n    \"user_id\" :21,\r\n    \"present\" : true //boolean value either true or false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/attend",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"attend"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show all atendence recored for specific student",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "122|MKjvwqKCHhNa3MDu2EvBNVqPpm20cc4rOIOxV8B9f4e7e7e0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/api/v1/rate",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"rate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update attendence",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "122|MKjvwqKCHhNa3MDu2EvBNVqPpm20cc4rOIOxV8B9f4e7e7e0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/api/v1/rate",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"rate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete attendence",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "122|MKjvwqKCHhNa3MDu2EvBNVqPpm20cc4rOIOxV8B9f4e7e7e0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/api/v1/rate/1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"rate",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "student get his lessons",
+			"item": []
+		},
+		{
+			"name": "contact us",
+			"item": [
+				{
+					"name": "contact us",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"subject\" : \"dfgfdgdg\",\r\n          \"name\" : \"dfggdfe\",\r\n          \"email\" : \"you@gmail.com\",\r\n          \"content\" : \"$request->content\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/email",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"email"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Quiz Endoints",
+			"item": [
+				{
+					"name": "questions Endpoint",
+					"item": [
+						{
+							"name": "get all questions related to specific quiz",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "169|5NXKoaxhUO8ldp0TcKfLefq6hLM10k21mY2lgTSu9ab07b2f",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"quiz_id\" : 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/question",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"question"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create a qestion",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "169|5NXKoaxhUO8ldp0TcKfLefq6hLM10k21mY2lgTSu9ab07b2f",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \"question_text\" : \"wahtwe wejew\", // reauired\r\n   \"quiz_id\" : \"2\" //required\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/question",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"question"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get specific question by its id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "169|5NXKoaxhUO8ldp0TcKfLefq6hLM10k21mY2lgTSu9ab07b2f",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/question/1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"question",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update specific question",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "169|5NXKoaxhUO8ldp0TcKfLefq6hLM10k21mY2lgTSu9ab07b2f",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"question_text\" : \"what is her name ?\", //optional\r\n    \"quiz_id\" : 1 //optional\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/question/1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"question",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete specific question Copy",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "169|5NXKoaxhUO8ldp0TcKfLefq6hLM10k21mY2lgTSu9ab07b2f",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/question/4",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"question",
+										"4"
+									]
+								},
+								"description": "if return 1 : deleted\n\nif return 0 : somethinge went wrong"
+							},
+							"response": []
+						}
+					],
+					"description": "here all api end point related to questions (delete,create,get)\n\ncreate delete update can be accessed by admins only\n\nthe rest can be accessed by all admin or student"
+				},
+				{
+					"name": "results Endpoint",
+					"item": [
+						{
+							"name": "get all results related to specific quiz",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "169|5NXKoaxhUO8ldp0TcKfLefq6hLM10k21mY2lgTSu9ab07b2f",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"quiz_id\" : 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/question",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"question"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create a results",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "169|5NXKoaxhUO8ldp0TcKfLefq6hLM10k21mY2lgTSu9ab07b2f",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \"user_id\" : 33, // reauired\r\n   \"quiz_id\" : 2, //required\r\n   \"score\" : 50 //required\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/result",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"result"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get specific result by its id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "169|5NXKoaxhUO8ldp0TcKfLefq6hLM10k21mY2lgTSu9ab07b2f",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/question/1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"question",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update specific question",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "169|5NXKoaxhUO8ldp0TcKfLefq6hLM10k21mY2lgTSu9ab07b2f",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \"user_id\" : 33, // optional\r\n   \"quiz_id\" : 3, //optional\r\n   \"score\" : 50 // optional\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/result/8",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"result",
+										"8"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete specific question Copy",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "169|5NXKoaxhUO8ldp0TcKfLefq6hLM10k21mY2lgTSu9ab07b2f",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/result/8",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"result",
+										"8"
+									]
+								},
+								"description": "if return 1 : deleted\n\nif return 0 : somethinge went wrong"
+							},
+							"response": []
+						}
+					],
+					"description": "here all api end point related to questions (delete,create,get)\n\ncreate delete update can be accessed by admins only\n\nthe rest can be accessed by all admin or student"
+				},
+				{
+					"name": "Answers Endpoint",
+					"item": [
+						{
+							"name": "get all answers related to specific question",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "169|5NXKoaxhUO8ldp0TcKfLefq6hLM10k21mY2lgTSu9ab07b2f",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"question_id\" : 6 //required\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/ans",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"ans"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create an answer",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "169|5NXKoaxhUO8ldp0TcKfLefq6hLM10k21mY2lgTSu9ab07b2f",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \"question_text\" : \"wahtwe wejew\", // reauired\r\n   \"quiz_id\" : \"2\" //required\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/question",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"question"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get specific question by its id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "169|5NXKoaxhUO8ldp0TcKfLefq6hLM10k21mY2lgTSu9ab07b2f",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/ans/3",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"ans",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update specific question",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "169|5NXKoaxhUO8ldp0TcKfLefq6hLM10k21mY2lgTSu9ab07b2f",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \"answer_text\" : \"wahtwe wejew\", // optional\r\n   \"question_id\" : 2, //optional\r\n   \"is_correct\" : 0  //optional\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/ans/3",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"ans",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete specific question Copy",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "169|5NXKoaxhUO8ldp0TcKfLefq6hLM10k21mY2lgTSu9ab07b2f",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/question/4",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"question",
+										"4"
+									]
+								},
+								"description": "if return 1 : deleted\n\nif return 0 : somethinge went wrong"
+							},
+							"response": []
+						}
+					],
+					"description": "here all api end point related to Answers (delete,create,get)\n\ncreate delete update can be accessed by admins only\n\nthe rest can be accessed by all admin or student"
+				},
+				{
+					"name": "Quiz Endpoint",
+					"item": [
+						{
+							"name": "get all quizesses",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "169|5NXKoaxhUO8ldp0TcKfLefq6hLM10k21mY2lgTSu9ab07b2f",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"quiz_id\" : 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/question",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"question"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create a quiz",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "169|5NXKoaxhUO8ldp0TcKfLefq6hLM10k21mY2lgTSu9ab07b2f",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \"question_text\" : \"wahtwe wejew\", // reauired\r\n   \"quiz_id\" : \"2\" //required\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/question",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"question"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get specific quiz by its id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "169|5NXKoaxhUO8ldp0TcKfLefq6hLM10k21mY2lgTSu9ab07b2f",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/question/1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"question",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update specific question",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "169|5NXKoaxhUO8ldp0TcKfLefq6hLM10k21mY2lgTSu9ab07b2f",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"question_text\" : \"what is her name ?\", //optional\r\n    \"quiz_id\" : 1 //optional\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/question/1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"question",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete specific quiz by its id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "169|5NXKoaxhUO8ldp0TcKfLefq6hLM10k21mY2lgTSu9ab07b2f",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/question/4",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"question",
+										"4"
+									]
+								},
+								"description": "if return 1 : deleted\n\nif return 0 : somethinge went wrong"
+							},
+							"response": []
+						}
+					],
+					"description": "here all api end point related to Quizzes (delete,create,get)\n\ncreate delete update can be accessed by admins only\n\nthe rest can be accessed by all admin or student"
+				},
+				{
+					"name": "responses Endpoint",
+					"item": [
+						{
+							"name": "get all responses related to specific quiz",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "169|5NXKoaxhUO8ldp0TcKfLefq6hLM10k21mY2lgTSu9ab07b2f",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"quiz_id\" : 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/question",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"question"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create a response",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "169|5NXKoaxhUO8ldp0TcKfLefq6hLM10k21mY2lgTSu9ab07b2f",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \"student_id\" :33, // reauired\r\n   \"quiz_id\" : 2, //required\r\n   \"question_id\" :2, // reauired\r\n   \"selected_answer_id\" : 3 //required\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/response",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"response"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get specific response by its id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "169|5NXKoaxhUO8ldp0TcKfLefq6hLM10k21mY2lgTSu9ab07b2f",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/question/1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"question",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update specific question",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "169|5NXKoaxhUO8ldp0TcKfLefq6hLM10k21mY2lgTSu9ab07b2f",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \"student_id\" :33, // optional\r\n   \"quiz_id\" : 2, //optional\r\n   \"question_id\" :2, // optional\r\n   \"selected_answer_id\" : 3 //optional\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/response/2",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"response",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete specific quiz by its id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "169|5NXKoaxhUO8ldp0TcKfLefq6hLM10k21mY2lgTSu9ab07b2f",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/question/4",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"question",
+										"4"
+									]
+								},
+								"description": "if return 1 : deleted\n\nif return 0 : somethinge went wrong"
+							},
+							"response": []
+						}
+					],
+					"description": "here all api end point related to reponses (delete,create,get)\n\ncan be accessed by all (admin,student)"
+				}
+			],
+			"description": "here you can find Quiz api endpoints"
+		},
+		{
+			"name": "test Copy",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "test Copy",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
